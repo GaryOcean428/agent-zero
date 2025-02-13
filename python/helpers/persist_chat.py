@@ -1,8 +1,8 @@
 from collections import OrderedDict
 from typing import Any
 import uuid
-from agent import Agent, AgentConfig, AgentContext, HumanMessage, AIMessage
-from python.helpers import files
+from agent import Agent, AgentConfig, AgentContext
+from python.helpers import files, history
 import json
 from initialize import initialize
 
@@ -10,44 +10,73 @@ from python.helpers.log import Log, LogItem
 
 CHATS_FOLDER = "tmp/chats"
 LOG_SIZE = 1000
+CHAT_FILE_NAME = "chat.json"
 
+
+def get_chat_folder_path(ctxid: str):
+    return files.get_abs_path(CHATS_FOLDER, ctxid)
 
 def save_tmp_chat(context: AgentContext):
-    relative_path = _get_file_path(context.id)
+    path = _get_chat_file_path(context.id)
+    files.make_dirs(path)
     data = _serialize_context(context)
     js = _safe_json_serialize(data, ensure_ascii=False)
-    files.write_file(relative_path, js)
+    files.write_file(path, js)
+
 
 def load_tmp_chats():
-    json_files = files.list_files("tmp/chats", "*.json")
+    _convert_v080_chats()
+    folders = files.list_files("tmp/chats/", "*")
+    json_files = []
+    for folder in folders:
+        json_files.append(_get_chat_file_path(folder))
+
     ctxids = []
     for file in json_files:
-        path = files.get_abs_path(CHATS_FOLDER, file)
-        js = files.read_file(path)
-        data = json.loads(js)
-        ctx = _deserialize_context(data)
-        ctxids.append(ctx.id)
+        try:
+            js = files.read_file(file)
+            data = json.loads(js)
+            ctx = _deserialize_context(data)
+            ctxids.append(ctx.id)
+        except Exception as e:
+            print(f"Error loading chat {file}: {e}")
     return ctxids
+
+
+def _get_chat_file_path(ctxid: str):
+    return files.get_abs_path(CHATS_FOLDER, ctxid, CHAT_FILE_NAME)
+
+
+def _convert_v080_chats():
+    json_files = files.list_files("tmp/chats", "*.json")
+    for file in json_files:
+        path = files.get_abs_path(CHATS_FOLDER, file)
+        name = file.rstrip(".json")
+        fold = files.get_abs_path(CHATS_FOLDER, name)
+        new = _get_chat_file_path(name)
+        files.move_file(path, new)
+
 
 def load_json_chats(jsons: list[str]):
     ctxids = []
     for js in jsons:
         data = json.loads(js)
+        if "id" in data:
+            del data["id"]  # remove id to get new
         ctx = _deserialize_context(data)
         ctxids.append(ctx.id)
     return ctxids
+
 
 def export_json_chat(context: AgentContext):
     data = _serialize_context(context)
     js = _safe_json_serialize(data, ensure_ascii=False)
     return js
 
+
 def remove_chat(ctxid):
-    files.delete_file(_get_file_path(ctxid))
+    files.delete_dir(get_chat_folder_path(ctxid))
 
-
-def _get_file_path(ctxid: str):
-    return f"{CHATS_FOLDER}/{ctxid}.json"
 
 
 def _serialize_context(context: AgentContext):
@@ -56,7 +85,7 @@ def _serialize_context(context: AgentContext):
     agent = context.agent0
     while agent:
         agents.append(_serialize_agent(agent))
-        agent = agent.data.get("subordinate", None)
+        agent = agent.data.get(Agent.DATA_NAME_SUBORDINATE, None)
 
     return {
         "id": context.id,
@@ -69,15 +98,9 @@ def _serialize_context(context: AgentContext):
 
 
 def _serialize_agent(agent: Agent):
-    data = {**agent.data}
-    if "superior" in data:
-        del data["superior"]
-    if "subordinate" in data:
-        del data["subordinate"]
+    data = {k: v for k, v in agent.data.items() if not k.startswith("_")}
 
-    history = []
-    for msg in agent.history:
-        history.append({"type": msg.type, "content": msg.content})
+    history = agent.history.serialize()
 
     return {
         "number": agent.number,
@@ -89,8 +112,9 @@ def _serialize_agent(agent: Agent):
 def _serialize_log(log: Log):
     return {
         "guid": log.guid,
-        "logs": [item.output() for item in log.logs[-LOG_SIZE:]]
-,  # serialize LogItem objects
+        "logs": [
+            item.output() for item in log.logs[-LOG_SIZE:]
+        ],  # serialize LogItem objects
         "progress": log.progress,
         "progress_no": log.progress_no,
     }
@@ -102,7 +126,7 @@ def _deserialize_context(data):
 
     context = AgentContext(
         config=config,
-        # id=data.get("id", None), #get new id
+        id=data.get("id", None),  # get new id
         name=data.get("name", None),
         log=log,
         paused=False,
@@ -114,8 +138,8 @@ def _deserialize_context(data):
     agent0 = _deserialize_agents(agents, config, context)
     streaming_agent = agent0
     while streaming_agent.number != data.get("streaming_agent", 0):
-        streaming_agent = streaming_agent.data.get("subordinate", None)
-        
+        streaming_agent = streaming_agent.data.get(Agent.DATA_NAME_SUBORDINATE, None)
+
     context.agent0 = agent0
     context.streaming_agent = streaming_agent
 
@@ -135,53 +159,55 @@ def _deserialize_agents(
             context=context,
         )
         current.data = ag.get("data", {})
-        current.history = _deserialize_history(ag.get("history", []))
-
+        current.history = history.deserialize_history(
+            ag.get("history", ""), agent=current
+        )
         if not zero:
             zero = current
 
         if prev:
-            prev.set_data("subordinate", current)
-            current.set_data("superior", prev)
+            prev.set_data(Agent.DATA_NAME_SUBORDINATE, current)
+            current.set_data(Agent.DATA_NAME_SUPERIOR, prev)
         prev = current
 
     return zero or Agent(0, config, context)
 
 
-def _deserialize_history(history: list[dict[str, Any]]):
-    result = []
-    for hist in history:
-        content = hist.get("content", "")
-        msg = (
-            HumanMessage(content=content)
-            if hist.get("type") == "human"
-            else AIMessage(content=content)
-        )
-        result.append(msg)
-    return result
+# def _deserialize_history(history: list[dict[str, Any]]):
+#     result = []
+#     for hist in history:
+#         content = hist.get("content", "")
+#         msg = (
+#             HumanMessage(content=content)
+#             if hist.get("type") == "human"
+#             else AIMessage(content=content)
+#         )
+#         result.append(msg)
+#     return result
 
 
 def _deserialize_log(data: dict[str, Any]) -> "Log":
     log = Log()
     log.guid = data.get("guid", str(uuid.uuid4()))
-    log.progress = data.get("progress", "")
-    log.progress_no = data.get("progress_no", 0)
+    log.set_initial_progress()
 
     # Deserialize the list of LogItem objects
     i = 0
     for item_data in data.get("logs", []):
-        log.logs.append(LogItem(
-            log=log,  # restore the log reference
-            no=item_data["no"],
-            type=item_data["type"],
-            heading=item_data.get("heading", ""),
-            content=item_data.get("content", ""),
-            kvps=OrderedDict(item_data["kvps"]) if item_data["kvps"] else None,
-            temp=item_data.get("temp", False),
-        ))
+        log.logs.append(
+            LogItem(
+                log=log,  # restore the log reference
+                no=i,  # item_data["no"],
+                type=item_data["type"],
+                heading=item_data.get("heading", ""),
+                content=item_data.get("content", ""),
+                kvps=OrderedDict(item_data["kvps"]) if item_data["kvps"] else None,
+                temp=item_data.get("temp", False),
+            )
+        )
         log.updates.append(i)
         i += 1
-        
+
     return log
 
 
