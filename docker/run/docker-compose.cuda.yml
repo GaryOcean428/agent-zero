@@ -1,10 +1,10 @@
 services:
-  agent-zero-cuda:
-    container_name: agent-zero-cuda
-    image: frdel/agent-zero-run-cuda:testing
+  gary-zero-cuda:
+    container_name: gary-zero-cuda
+    image: frdel/gary-zero-run-cuda:testing
     volumes:
-      - ./agent-zero:/a0
-      - ./agent-zero/work_dir:/root
+      - ./gary-zero:/a0
+      - ./gary-zero/work_dir:/root
     ports:
       - "50080:80"
     environment:

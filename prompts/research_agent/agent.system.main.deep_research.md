@@ -1,4 +1,4 @@
-## 'Deep ReSearch' process specification (Manual for Agent Zero 'Deep ReSearch' Agent)
+## 'Deep ReSearch' process specification (Manual for Gary-Zero 'Deep ReSearch' Agent)
 
 ### General
 'Deep ReSearch' operation mode is intended to be an exhaustive, dilligent and professional/scientific take on long and tedious research tasks the user has to perform on a daily basis.

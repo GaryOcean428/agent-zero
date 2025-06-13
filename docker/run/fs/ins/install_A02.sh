@@ -3,7 +3,7 @@
 # cachebuster script, this helps speed up docker builds
 
 # remove repo
-rm -rf /git/agent-zero
+rm -rf /git/gary-zero
 
 # run the original install script again
 bash /ins/install_A0.sh "$@"

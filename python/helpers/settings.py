@@ -123,7 +123,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "chat_model_provider",
             "title": "Chat model provider",
-            "description": "Select provider for main chat model used by Agent Zero",
+            "description": "Select provider for main chat model used by Gary-Zero",
             "type": "select",
             "value": settings["chat_model_provider"],
             "options": [{"value": p.name, "label": p.value} for p in ModelProvider],
@@ -215,7 +215,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     chat_model_section: SettingsSection = {
         "id": "chat_model",
         "title": "Chat Model",
-        "description": "Selection and settings for main chat model used by Agent Zero",
+        "description": "Selection and settings for main chat model used by Gary-Zero",
         "fields": chat_model_fields,
         "tab": "agent",
     }
@@ -345,7 +345,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     embed_model_section: SettingsSection = {
         "id": "embed_model",
         "title": "Embedding Model",
-        "description": "Settings for the embedding model used by Agent Zero.",
+        "description": "Settings for the embedding model used by Gary-Zero.",
         "fields": embed_model_fields,
         "tab": "agent",
     }
@@ -395,7 +395,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     browser_model_section: SettingsSection = {
         "id": "browser_model",
         "title": "Web Browser Model",
-        "description": "Settings for the web browser model. Agent Zero uses <a href='https://github.com/browser-use/browser-use' target='_blank'>browser-use</a> agentic framework to handle web interactions.",
+        "description": "Settings for the web browser model. Gary-Zero uses <a href='https://github.com/browser-use/browser-use' target='_blank'>browser-use</a> agentic framework to handle web interactions.",
         "fields": browser_model_fields,
         "tab": "agent",
     }
@@ -460,7 +460,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     auth_section: SettingsSection = {
         "id": "auth",
         "title": "Authentication",
-        "description": "Settings for authentication to use Agent Zero Web UI.",
+        "description": "Settings for authentication to use Gary-Zero Web UI.",
         "fields": auth_fields,
         "tab": "external",
     }
@@ -491,7 +491,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     api_keys_section: SettingsSection = {
         "id": "api_keys",
         "title": "API Keys",
-        "description": "API keys for model providers and services used by Agent Zero.",
+        "description": "API keys for model providers and services used by Gary-Zero.",
         "fields": api_keys_fields,
         "tab": "external",
     }
@@ -734,7 +734,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     mcp_client_section: SettingsSection = {
         "id": "mcp_client",
         "title": "External MCP Servers",
-        "description": "Agent Zero can use external MCP servers, local or remote as tools.",
+        "description": "Gary-Zero can use external MCP servers, local or remote as tools.",
         "fields": mcp_client_fields,
         "tab": "mcp",
     }
@@ -745,7 +745,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "mcp_server_enabled",
             "title": "Enable A0 MCP Server",
-            "description": "Expose Agent Zero as an SSE MCP server. This will make this A0 instance available to MCP clients.",
+            "description": "Expose Gary-Zero as an SSE MCP server. This will make this A0 instance available to MCP clients.",
             "type": "switch",
             "value": settings["mcp_server_enabled"],
         }
@@ -765,7 +765,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     mcp_server_section: SettingsSection = {
         "id": "mcp_server",
         "title": "A0 MCP Server",
-        "description": "Agent Zero can be exposed as an SSE MCP server. See <a href=\"javascript:openModal('settings/mcp/server/example.html')\">connection example</a>.",
+        "description": "Gary-Zero can be exposed as an SSE MCP server. See <a href=\"javascript:openModal('settings/mcp/server/example.html')\">connection example</a>.",
         "fields": mcp_server_fields,
         "tab": "mcp",
     }

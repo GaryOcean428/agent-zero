@@ -1,8 +1,8 @@
 services:
-  agent-zero:
-    container_name: agent-zero
-    image: frdel/agent-zero:latest
+  gary-zero:
+    container_name: gary-zero
+    image: frdel/gary-zero:latest
     volumes:
-      - ./agent-zero:/a0
+      - ./gary-zero:/a0
     ports:
       - "50080:80"

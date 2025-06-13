@@ -1,15 +1,15 @@
 <div align="center">
 
-![Agent Zero](/docs/res/header.png)
+![Gary-Zero](/docs/res/header.png)
 
 ### A dynamic, organic, and fully transparent open-source AI framework.
 
 [Installation](./docs/installation.md) •
-[How to update](./docs/installation.md#how-to-update-agent-zero) •
+[How to update](./docs/installation.md#how-to-update-gary-zero) •
 [Documentation](./docs/README.md) •
 [Usage](./docs/usage.md)
 
-[![Join our Skool Community](https://img.shields.io/badge/Skool-Join%20our%20Community-4A90E2?style=for-the-badge&logo=skool&logoColor=white)](https://www.skool.com/agent-zero) [![Join our Discord](https://img.shields.io/badge/Discord-Join%20our%20server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/B8KZKNsPpj) [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@AgentZeroFW) [![Connect on LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jan-tomasek/) [![Follow on X.com](https://img.shields.io/badge/X.com-Follow-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/JanTomasekDev)
+[![Join our Skool Community](https://img.shields.io/badge/Skool-Join%20our%20Community-4A90E2?style=for-the-badge&logo=skool&logoColor=white)](https://www.skool.com/gary-zero) [![Join our Discord](https://img.shields.io/badge/Discord-Join%20our%20server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/B8KZKNsPpj) [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@AgentZeroFW) [![Connect on LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jan-tomasek/) [![Follow on X.com](https://img.shields.io/badge/X.com-Follow-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/JanTomasekDev)
 
 </div>
 
@@ -17,27 +17,27 @@ https://github.com/user-attachments/assets/c168759d-57d8-4b43-b62a-1026afcf52e6
 
 ## A personal agentic framework that grows and learns with you
 
-- Agent Zero is not a predefined agentic framework. It is designed to be dynamic, organically growing, and learning as you use it.
-- Agent Zero is fully transparent, readable, comprehensible, customizable, and interactive.
-- Agent Zero uses the computer as a tool to accomplish its (your) tasks.
+- Gary-Zero is not a predefined agentic framework. It is designed to be dynamic, organically growing, and learning as you use it.
+- Gary-Zero is fully transparent, readable, comprehensible, customizable, and interactive.
+- Gary-Zero uses the computer as a tool to accomplish its (your) tasks.
 
 # 💡 Key Features
 
 1. **General-purpose Assistant**
 
-- Agent Zero is not pre-programmed for specific tasks (but can be). It is meant to be a general-purpose personal assistant. Give it a task, and it will gather information, execute commands and code, cooperate with other agent instances, and do its best to accomplish it.
+- Gary-Zero is not pre-programmed for specific tasks (but can be). It is meant to be a general-purpose personal assistant. Give it a task, and it will gather information, execute commands and code, cooperate with other agent instances, and do its best to accomplish it.
 - It has a persistent memory, allowing it to memorize previous solutions, code, facts, instructions, etc., to solve tasks faster and more reliably in the future.
 
 ![Agent 0 Working](/docs/res/ui-screen-2.png)
 
 2. **Computer as a Tool**
 
-- Agent Zero uses the operating system as a tool to accomplish its tasks. It has no single-purpose tools pre-programmed. Instead, it can write its own code and use the terminal to create and use its own tools as needed.
+- Gary-Zero uses the operating system as a tool to accomplish its tasks. It has no single-purpose tools pre-programmed. Instead, it can write its own code and use the terminal to create and use its own tools as needed.
 - The only default tools in its arsenal are online search, memory features, communication (with the user and other agents), and code/terminal execution. Everything else is created by the agent itself or can be extended by the user.
 - Tool usage functionality has been developed from scratch to be the most compatible and reliable, even with very small models.
-- **Default Tools:** Agent Zero includes tools like knowledge, webpage content, code execution, and communication.
-- **Creating Custom Tools:** Extend Agent Zero's functionality by creating your own custom tools.
-- **Instruments:** Instruments are a new type of tool that allow you to create custom functions and procedures that can be called by Agent Zero.
+- **Default Tools:** Gary-Zero includes tools like knowledge, webpage content, code execution, and communication.
+- **Creating Custom Tools:** Extend Gary-Zero's functionality by creating your own custom tools.
+- **Instruments:** Instruments are a new type of tool that allow you to create custom functions and procedures that can be called by Gary-Zero.
 
 3. **Multi-agent Cooperation**
 
@@ -65,7 +65,7 @@ https://github.com/user-attachments/assets/c168759d-57d8-4b43-b62a-1026afcf52e6
 - The terminal interface is real-time streamed and interactive. You can stop and intervene at any point. If you see your agent heading in the wrong direction, just stop and tell it right away.
 - There is a lot of freedom in this framework. You can instruct your agents to regularly report back to superiors asking for permission to continue. You can instruct them to use point-scoring systems when deciding when to delegate subtasks. Superiors can double-check subordinates' results and dispute. The possibilities are endless.
 
-## 🚀 Things you can build with Agent Zero
+## 🚀 Things you can build with Gary-Zero
 
 - **Development Projects** - `"Create a React dashboard with real-time data visualization"`
 
@@ -79,24 +79,24 @@ https://github.com/user-attachments/assets/c168759d-57d8-4b43-b62a-1026afcf52e6
 
 # ⚙️ Installation
 
-Click to open a video to learn how to install Agent Zero:
+Click to open a video to learn how to install Gary-Zero:
 
 [![Testing Video](/docs/res/new_vid.jpg)](https://www.youtube.com/watch?v=cHDCCSr1YRI&t=24s)
 
-A detailed setup guide for Windows, macOS, and Linux with a video can be found in the Agent Zero Documentation at [this page](./docs/installation.md).
+A detailed setup guide for Windows, macOS, and Linux with a video can be found in the Gary-Zero Documentation at [this page](./docs/installation.md).
 
 ### ⚡ Quick Start
 
 ```bash
 # Pull and run with Docker
 
-docker pull frdel/agent-zero-run
-docker run -p 50001:80 frdel/agent-zero-run
+docker pull frdel/gary-zero-run
+docker run -p 50001:80 frdel/gary-zero-run
 
 # Visit http://localhost:50001 to start
 ```
 
-- Developers and contributors: download the full binaries for your system from the [releases page](https://github.com/frdel/agent-zero/releases) and then follow the instructions [provided here](./docs/installation.md#in-depth-guide-for-full-binaries-installation).
+- Developers and contributors: download the full binaries for your system from the [releases page](https://github.com/frdel/gary-zero/releases) and then follow the instructions [provided here](./docs/installation.md#in-depth-guide-for-full-binaries-installation).
 
 ## 🐳 Fully Dockerized, with Speech-to-Text and TTS
 
@@ -115,17 +115,17 @@ docker run -p 50001:80 frdel/agent-zero-run
 
 ## 👀 Keep in Mind
 
-1. **Agent Zero Can Be Dangerous!**
+1. **Gary-Zero Can Be Dangerous!**
 
-- With proper instruction, Agent Zero is capable of many things, even potentially dangerous actions concerning your computer, data, or accounts. Always run Agent Zero in an isolated environment (like Docker) and be careful what you wish for.
+- With proper instruction, Gary-Zero is capable of many things, even potentially dangerous actions concerning your computer, data, or accounts. Always run Gary-Zero in an isolated environment (like Docker) and be careful what you wish for.
 
-2. **Agent Zero Is Not Pre-programmed; It Is Prompt-based.**
+2. **Gary-Zero Is Not Pre-programmed; It Is Prompt-based.**
 
 - The whole framework contains only a minimal amount of code and does not guide the agent in any way. Everything lies in the system prompt located in the **prompts/** folder.
 
 3. **If You Cannot Provide the Ideal Environment, Let Your Agent Know.**
 
-- Agent Zero is made to be used in an isolated virtual environment (for safety) with some tools preinstalled and configured.
+- Gary-Zero is made to be used in an isolated virtual environment (for safety) with some tools preinstalled and configured.
 
 ### 📌 Known Problems
 
@@ -152,9 +152,9 @@ docker run -p 50001:80 frdel/agent-zero-run
 
 > [!IMPORTANT]
 >
->**Changes to frdel/agent-zero Docker image since v0.7:**
+>**Changes to frdel/gary-zero Docker image since v0.7:**
 >
-> The new Docker image `frdel/agent-zero-run` provides the new unified environment.
+> The new Docker image `frdel/gary-zero-run` provides the new unified environment.
 
 ### v0.8
 
@@ -179,6 +179,6 @@ docker run -p 50001:80 frdel/agent-zero-run
 
 ## 🤝 Community and Support
 
-- [Join our Discord](https://discord.gg/B8KZKNsPpj) for live discussions or [visit our Skool Community](https://www.skool.com/agent-zero).
+- [Join our Discord](https://discord.gg/B8KZKNsPpj) for live discussions or [visit our Skool Community](https://www.skool.com/gary-zero).
 - [Follow our YouTube channel](https://www.youtube.com/@AgentZeroFW) for hands-on explanations and tutorials
-- [Report Issues](https://github.com/frdel/agent-zero/issues) for bug fixes and features
+- [Report Issues](https://github.com/frdel/gary-zero/issues) for bug fixes and features

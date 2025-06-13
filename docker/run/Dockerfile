@@ -1,6 +1,6 @@
 # Use the pre-built base image for A0
-# FROM agent-zero-base:local
-FROM frdel/agent-zero-base:latest
+# FROM gary-zero-base:local
+FROM frdel/gary-zero-base:latest
 
 # Check if the argument is provided, else throw an error
 ARG BRANCH

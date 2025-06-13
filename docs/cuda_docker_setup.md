@@ -1,6 +1,6 @@
-# Agent Zero: CUDA GPU Support 🚀
+# Gary-Zero: CUDA GPU Support 🚀
 
-This guide explains how to build and run Agent Zero with NVIDIA GPU acceleration using CUDA. Running with CUDA enables faster performance for AI workloads by leveraging your GPU.
+This guide explains how to build and run Gary-Zero with NVIDIA GPU acceleration using CUDA. Running with CUDA enables faster performance for AI workloads by leveraging your GPU.
 
 ---
 
@@ -23,25 +23,25 @@ Open a terminal in this directory and run:
 ```bash
 # Set the branch you want to build from (default: main)
 $branch="main"
-docker build --no-cache -t frdel/agent-zero-run-cuda:testing --build-arg BRANCH=$branch -f Dockerfile.cuda .
+docker build --no-cache -t frdel/gary-zero-run-cuda:testing --build-arg BRANCH=$branch -f Dockerfile.cuda .
 ```
 
 ---
 
-## 2. Run Agent Zero with CUDA Support
+## 2. Run Gary-Zero with CUDA Support
 
-You can start Agent Zero with GPU support using Docker Compose:
+You can start Gary-Zero with GPU support using Docker Compose:
 
 ```bash
 # On Linux, macOS, or Windows PowerShell:
 docker-compose -f docker-compose.cuda.yml up -d
 ```
 
-- This will launch Agent Zero in the background with GPU acceleration enabled.
+- This will launch Gary-Zero in the background with GPU acceleration enabled.
 
 ---
 
-## 3. Access Agent Zero
+## 3. Access Gary-Zero
 
 Once the container is running, open your browser and go to:
 
@@ -49,9 +49,9 @@ Once the container is running, open your browser and go to:
 
 ---
 
-## 4. Stopping Agent Zero
+## 4. Stopping Gary-Zero
 
-To stop the CUDA-enabled Agent Zero container:
+To stop the CUDA-enabled Gary-Zero container:
 
 ```bash
 docker-compose -f docker-compose.cuda.yml down
@@ -97,8 +97,8 @@ You can easily switch between the CPU and GPU versions:
 ## More Information
 
 - [NVIDIA Container Toolkit Documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
-- [Agent Zero Project](https://github.com/frdel/agent-zero) (replace with your actual repo link if different)
+- [Gary-Zero Project](https://github.com/frdel/gary-zero) (replace with your actual repo link if different)
 
 ---
 
-**Enjoy accelerated AI with Agent Zero and CUDA!**
+**Enjoy accelerated AI with Gary-Zero and CUDA!**

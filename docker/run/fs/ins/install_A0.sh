@@ -11,7 +11,7 @@ if [ -z "$1" ]; then
 fi
 BRANCH="$1"
 
-git clone -b "$BRANCH" "https://github.com/frdel/agent-zero" "/git/agent-zero" || {
+git clone -b "$BRANCH" "https://github.com/frdel/gary-zero" "/git/gary-zero" || {
     echo "CRITICAL ERROR: Failed to clone repository. Branch: $BRANCH"
     exit 1
 }
@@ -32,7 +32,7 @@ python -c "import mcp; from mcp import ClientSession; print(f'DEBUG: mcp and mcp
 }
 
 # Install remaining A0 python packages
-uv pip install -r /git/agent-zero/requirements.txt
+uv pip install -r /git/gary-zero/requirements.txt
 
 uv pip install langchain-anthropic==0.3.15 # TODO: remove after browser-use update
 
@@ -44,4 +44,4 @@ python -c "import mcp; from mcp import ClientSession; print(f'DEBUG: mcp and mcp
 bash /ins/install_playwright.sh "$@"
 
 # Preload A0
-python /git/agent-zero/preload.py --dockerized=true
+python /git/gary-zero/preload.py --dockerized=true

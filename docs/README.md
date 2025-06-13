@@ -1,32 +1,32 @@
-![Agent Zero Logo](res/header.png)
-# Agent Zero Documentation
-To begin with Agent Zero, follow the links below for detailed guides on various topics:
+![Gary-Zero Logo](res/header.png)
+# Gary-Zero Documentation
+To begin with Gary-Zero, follow the links below for detailed guides on various topics:
 
-- **[Installation](installation.md):** Set up (or [update](installation.md#how-to-update-agent-zero)) Agent Zero on your system.
+- **[Installation](installation.md):** Set up (or [update](installation.md#how-to-update-gary-zero)) Gary-Zero on your system.
 - **[Usage Guide](usage.md):** Explore GUI features and usage scenarios.
 - **[Architecture Overview](architecture.md):** Understand the internal workings of the framework.
-- **[Contributing](contribution.md):** Learn how to contribute to the Agent Zero project.
+- **[Contributing](contribution.md):** Learn how to contribute to the Gary-Zero project.
 - **[Troubleshooting and FAQ](troubleshooting.md):** Find answers to common issues and questions.
 
-### Your experience with Agent Zero starts now!
+### Your experience with Gary-Zero starts now!
 
-- **Download Agent Zero:** Follow the [installation guide](installation.md) to download and run Agent Zero.
-- **Join the Community:** Join the Agent Zero [Skool](https://www.skool.com/agent-zero) or [Discord](https://discord.gg/Z2tun2N3) community to discuss ideas, ask questions, and collaborate with other contributors.
-- **Share your Work:** Share your Agent Zero creations, workflows and discoverings on our [Show and Tell](https://github.com/frdel/agent-zero/discussions/categories/show-and-tell) area on GitHub.
-- **Report Issues:** Use the [GitHub issue tracker](https://github.com/frdel/agent-zero/issues) to report framework-relative bugs or suggest new features.
+- **Download Gary-Zero:** Follow the [installation guide](installation.md) to download and run Gary-Zero.
+- **Join the Community:** Join the Gary-Zero [Skool](https://www.skool.com/gary-zero) or [Discord](https://discord.gg/Z2tun2N3) community to discuss ideas, ask questions, and collaborate with other contributors.
+- **Share your Work:** Share your Gary-Zero creations, workflows and discoverings on our [Show and Tell](https://github.com/frdel/gary-zero/discussions/categories/show-and-tell) area on GitHub.
+- **Report Issues:** Use the [GitHub issue tracker](https://github.com/frdel/gary-zero/issues) to report framework-relative bugs or suggest new features.
 
 ## Table of Contents
 
-- [Welcome to the Agent Zero Documentation](#agent-zero-documentation)
-  - [Your Experience with Agent Zero](#your-experience-with-agent-zero-starts-now)
+- [Welcome to the Gary-Zero Documentation](#gary-zero-documentation)
+  - [Your Experience with Gary-Zero](#your-experience-with-gary-zero-starts-now)
   - [Table of Contents](#table-of-contents)
 - [Installation Guide](installation.md)
   - [Windows, macOS and Linux Setup](installation.md#windows-macos-and-linux-setup-guide)
   - [Settings Configuration](installation.md#settings-configuration)
   - [Choosing Your LLMs](installation.md#choosing-your-llms)
   - [Installing and Using Ollama](installation.md#installing-and-using-ollama-local-models)
-  - [Using Agent Zero on Mobile](installation.md#using-agent-zero-on-your-mobile-device)
-  - [How to Update Agent Zero](installation.md#how-to-update-agent-zero)
+  - [Using Gary-Zero on Mobile](installation.md#using-gary-zero-on-your-mobile-device)
+  - [How to Update Gary-Zero](installation.md#how-to-update-gary-zero)
   - [Full Binaries Installation](installation.md#in-depth-guide-for-full-binaries-installation)
 - [Usage Guide](usage.md)
   - [Basic Operations](usage.md#basic-operations)
