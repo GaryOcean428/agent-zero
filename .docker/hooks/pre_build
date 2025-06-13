@@ -1,0 +1,29 @@
+#!/bin/bash
+# Docker Hub pre-build hook
+# This runs before the build starts
+
+echo "=> Executing pre-build hook..."
+
+# Display build information
+echo "=> Build environment:"
+echo "   SOURCE_BRANCH: ${SOURCE_BRANCH:-not set}"
+echo "   SOURCE_COMMIT: ${SOURCE_COMMIT:-not set}"
+echo "   DOCKER_REPO: ${DOCKER_REPO:-not set}"
+echo "   DOCKER_TAG: ${DOCKER_TAG:-not set}"
+echo "   DOCKERFILE_PATH: ${DOCKERFILE_PATH:-not set}"
+
+# Check for required files
+if [ ! -f "$DOCKERFILE_PATH" ]; then
+    echo "ERROR: Dockerfile not found at $DOCKERFILE_PATH"
+    exit 1
+fi
+
+# Display Docker version
+echo "=> Docker version:"
+docker version
+
+# Clean up any dangling images to save space
+echo "=> Cleaning up dangling images..."
+docker image prune -f || true
+
+echo "=> Pre-build hook completed"

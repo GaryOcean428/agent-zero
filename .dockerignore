@@ -1,0 +1,184 @@
+# ======================
+# Cloud Build & CI/CD
+# ======================
+cloudbuild*.yaml
+.gcloudignore
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+Jenkinsfile
+azure-pipelines.yml
+
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+*.cover
+.hypothesis/
+.pytest_cache/
+cover/
+*.mo
+*.pot
+
+# ======================
+# Virtual Environments
+# ======================
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+.env*
+!.env.example
+
+# ======================
+# Node.js
+# ======================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp*
+.pnp.js
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# ======================
+# IDEs and Editors
+# ======================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+*.sublime-*
+*.sublime-project
+*.sublime-workspace
+
+# ======================
+# Project Files
+# ======================
+*.log
+logs/
+*.sqlite3
+*.db
+*.sql
+*.sqlite
+*.sqlite3-journal
+*.dump
+tmp/
+temp/
+
+# ======================
+# Docker
+# ======================
+Dockerfile*
+!Dockerfile
+docker-compose*.yml
+.dockerignore
+.docker/
+
+# ======================
+# Git
+# ======================
+.git/
+.gitignore
+.gitattributes
+.gitmodules
+.gitkeep
+
+# ======================
+# Documentation
+# ======================
+docs/
+*.md
+!README.md
+*.markdown
+*.rst
+LICENSE
+CHANGELOG*
+CONTRIBUTING*
+
+# ======================
+# Testing
+# ======================
+tests/
+test/
+*.test.py
+*_test.py
+test_*.py
+e2e/
+integration/
+unit/
+
+# ======================
+# Scripts & Tools
+# ======================
+scripts/
+tools/
+Makefile
+*.sh
+!start.sh
+
+# ======================
+# Misc
+# ======================
+*.bak
+*.tmp
+*.temp
+*.orig
+*.rej
+.cache/
+.history/
+*.tar
+*.tar.gz
+*.zip
+*.tgz
+
+# ======================
+# OS Files
+# ======================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.Spotlight-V100
+.Trashes
+._*
+
+# ======================
+# Security
+# ======================
+*.pem
+*.key
+*.crt
+*.p12
+.secrets/
+secrets/

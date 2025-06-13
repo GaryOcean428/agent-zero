@@ -1,0 +1,29 @@
+#!/bin/bash
+# Docker Hub custom build hook
+# This allows us to pass build arguments and customize the build process
+
+echo "=> Building with custom build arguments..."
+
+# Extract version from tag or use 'dev'
+VERSION=${DOCKER_TAG:-dev}
+if [[ "$SOURCE_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    VERSION=${SOURCE_BRANCH}
+fi
+
+# Build the image with additional metadata
+docker build \
+    --build-arg BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
+    --build-arg VCS_REF=${SOURCE_COMMIT:-$(git rev-parse --short HEAD)} \
+    --build-arg VERSION=$VERSION \
+    --build-arg DOCKER_TAG=$DOCKER_TAG \
+    --label "org.opencontainers.image.created=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
+    --label "org.opencontainers.image.revision=${SOURCE_COMMIT:-unknown}" \
+    --label "org.opencontainers.image.version=$VERSION" \
+    --label "org.opencontainers.image.title=gary-zero" \
+    --label "org.opencontainers.image.description=Gary Zero - AI-powered coding assistant" \
+    --label "org.opencontainers.image.source=https://github.com/${DOCKER_REPO}" \
+    -f $DOCKERFILE_PATH \
+    -t $IMAGE_NAME \
+    .
+
+echo "=> Build completed successfully"
