@@ -39,9 +39,21 @@ FROM python:3.11-slim
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PYTHONPATH=/app \
     PORT=8000 \
     PATH="/home/appuser/.local/bin:${PATH}"
+
+# Set default application environment variables (non-sensitive)
+ENV WEB_UI_PORT=50001 \
+    USE_CLOUDFLARE=false \
+    TOKENIZERS_PARALLELISM=true \
+    PYDEVD_DISABLE_FILE_VALIDATION=1 \
+    OLLAMA_BASE_URL="http://127.0.0.1:11434" \
+    LM_STUDIO_BASE_URL="http://127.0.0.1:1234/v1" \
+    OPEN_ROUTER_BASE_URL="https://openrouter.ai/api/v1" \
+    SAMBANOVA_BASE_URL="https://fast-api.snova.ai/v1"
 
 # Install system dependencies and create non-root user in one layer
 RUN apt-get update && apt-get install -y --no-install-recommends \
